@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public enum SpawnState { SPAWNING, WAITING, COUTING }; //fråga edvin vad detta är 
+    public enum SpawnState { SPAWNING, WAITING, COUTING }; //lista av bools
     [System.Serializable]
     public class Wave
     {
@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
 
     private float searchCoundown = 1f; //!! Dubbelkolla vad den gör!! Den ska leta 
 
-    public SpawnState state = SpawnState.COUTING;
+    private SpawnState state = SpawnState.COUTING;
 
     void Start()
     {
@@ -92,7 +92,7 @@ public class WaveSpawner : MonoBehaviour
         //spawn enemy
        
                 Debug.Log("Spawning Enemy" + _enemy.name);
-        Instantiate(_enemy, transform.position, transform.rotation); // fråga edvin
+        Instantiate(_enemy, transform.position, transform.rotation); 
             }
 
         
