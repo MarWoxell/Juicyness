@@ -10,12 +10,17 @@ public class Menu : MonoBehaviour
 
     // Options menu
     public GameObject optionsMenu;
-    bool options = false;
+
+    //bool options = false;
 
     // Pause menu
     public GameObject pauseMenu;
     bool pause = false;
 
+
+    //-----------//Ska lägga dit death scene saker senare efter man kan dö
+    public GameObject deathMenu;
+    bool death = false;
 
     // Start av scenen
     public void Start()
@@ -25,8 +30,18 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1;
 
         optionsMenu.SetActive(false);
-        options = false;
+        //options = false;
 
+        deathMenu.SetActive(false);
+        death = false;
+    }
+
+
+    public void Dead()
+    {
+        deathMenu.SetActive(true);
+        death = true;
+        Time.timeScale = 0;
     }
 
     // Pause Menu knapp
@@ -49,6 +64,11 @@ public class Menu : MonoBehaviour
             }
 
         }
+
+        if (death == true)
+        {
+            Time.timeScale = 0;
+        }
     }
 
     public void resume()
@@ -64,12 +84,12 @@ public class Menu : MonoBehaviour
 
     public void start()
     {
-        SceneManager.LoadScene("Markus");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void goBack()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MenuScene");
     }
 
 
@@ -79,12 +99,12 @@ public class Menu : MonoBehaviour
     public void settings()
     {
         optionsMenu.SetActive(true);
-        options = true;
+        //options = true;
     }
     public void editied()
     {
         optionsMenu.SetActive(false);
-        options = false;
+        //options = false;
     }
 
 
