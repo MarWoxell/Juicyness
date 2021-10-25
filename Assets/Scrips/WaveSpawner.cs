@@ -37,6 +37,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 //Begin a new round
                 Debug.Log("Wave Complete");
+              //  return;
             }
             else
             {
