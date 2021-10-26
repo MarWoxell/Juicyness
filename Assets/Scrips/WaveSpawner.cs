@@ -1,8 +1,7 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class WaveSpawner : MonoBehaviour
 {
     public enum SpawnState { SPAWNING, WAITING, COUTING }; //lista av bools
@@ -15,15 +14,16 @@ public class WaveSpawner : MonoBehaviour
         public float rate; //hastigheten dom kommer spawnas 
     }
     public Wave[] wave;
-    private int nextWave = 0;
+    public int nextWave = 0;
 
     public float timeBetweenWaves = 5f;
     public float waveCountdown; //så vi kan bestämma själva
 
     private float searchCoundown = 1f; //!! Dubbelkolla vad den gör!! Den ska leta 
 
-    private SpawnState state = SpawnState.COUTING;
+    private SpawnState state = SpawnState.WAITING;
 
+    public Transform[] SpawnPos;
     void Start()
     {
         waveCountdown = timeBetweenWaves;
@@ -31,23 +31,41 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
+
+ 
+        if (nextWave < wave.Length)
+        {
+           
+            if (wave[nextWave].count <= 0)
+            {
+
+                nextWave++;
+
+            }
+
+        }
+       
         if (state == SpawnState.WAITING)
         {
+            Debug.Log("Waiting");
             if (EnemyIsAlive() == false)
             {
                 //Begin a new round
                 Debug.Log("Wave Complete");
               //  return;
             }
-            else
-            {
-                return;
-            }
+          
+
             if (waveCountdown <= 0)
             {
+                Debug.Log("Spawn");
                 if (state != SpawnState.SPAWNING)
                 {
-                    StartCoroutine(SpawnWave(wave[nextWave])); //kanske waves??
+                   if(nextWave < wave.Length)
+                    {
+                        StartCoroutine(SpawnWave(wave[nextWave])); //kanske waves??
+                    }
+                
                     //Start spawing 
                 }
                 else
@@ -74,7 +92,7 @@ public class WaveSpawner : MonoBehaviour
         
             IEnumerator SpawnWave(Wave _wave)
             {
-        Debug.Log("Spawning Wave:" + _wave.name);
+               Debug.Log("Spawning Wave:" + _wave.name);
                 state = SpawnState.SPAWNING;
 
                 for (int i = 0; i < _wave.count; i++) // att detta ska hända ____
@@ -91,9 +109,10 @@ public class WaveSpawner : MonoBehaviour
             void SpawnEnemy(Transform _enemy)
             {
         //spawn enemy
-       
+        int RandomSpawn = Random.Range(0, SpawnPos.Length);
                 Debug.Log("Spawning Enemy" + _enemy.name);
-        Instantiate(_enemy, transform.position, transform.rotation); 
+        Instantiate(_enemy, SpawnPos[RandomSpawn].position, transform.rotation);
+        wave[nextWave].count--;
             }
 
         
