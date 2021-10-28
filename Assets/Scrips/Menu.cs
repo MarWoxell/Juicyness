@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+
     // skrivet av Markus
 
     // Options menu
@@ -25,6 +26,8 @@ public class Menu : MonoBehaviour
     // Start av scenen
     public void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Start Menu Music");
+
         pause = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
@@ -42,6 +45,8 @@ public class Menu : MonoBehaviour
         deathMenu.SetActive(true);
         death = true;
         Time.timeScale = 0;
+
+        FindObjectOfType<AudioManager>().Play("Death Music");
     }
 
     // Pause Menu knapp
