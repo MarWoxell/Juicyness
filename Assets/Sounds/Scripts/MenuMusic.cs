@@ -9,11 +9,7 @@ public class MenuMusic : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("Gameplay Music");
         FindObjectOfType<AudioManager>().Play("Pause Music");
+        FindObjectOfType<AudioManager>().Mute("Pause Music");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

@@ -26,7 +26,6 @@ public class Menu : MonoBehaviour
     // Start av scenen
     public void Start()
     {
-        GetComponent<AudioManager>();
         FindObjectOfType<AudioManager>().Play("Start Menu Music");
 
         pause = false;
@@ -47,6 +46,7 @@ public class Menu : MonoBehaviour
         death = true;
         Time.timeScale = 0;
 
+        FindObjectOfType<AudioManager>().Mute("Gameplay Music");
         FindObjectOfType<AudioManager>().Play("Death Music");
     }
 
@@ -61,13 +61,16 @@ public class Menu : MonoBehaviour
                 pause = true;
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0;
-                
+                FindObjectOfType<AudioManager>().Mute("Gameplay Music");
+                FindObjectOfType<AudioManager>().UnMute("Pause Music");
             }
             else
             {
                 pause = false;
                 pauseMenu.SetActive(false);
                 Time.timeScale = 1;
+                FindObjectOfType<AudioManager>().UnMute("Gameplay Music");
+                FindObjectOfType<AudioManager>().Mute("Pause Music");
             }
 
         }
@@ -76,6 +79,11 @@ public class Menu : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            Dead();
+        }
     }
 
     public void resume()
@@ -83,6 +91,8 @@ public class Menu : MonoBehaviour
         pause = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        FindObjectOfType<AudioManager>().UnMute("Gameplay Music");
+        FindObjectOfType<AudioManager>().Mute("Pause Music");
     }
 
 

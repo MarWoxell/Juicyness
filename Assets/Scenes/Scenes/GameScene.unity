@@ -187,15 +187,22 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f6f09de796962934b9ac20125378e293, type: 3}
     volume: 0.5
     pitch: 1
-    loop: 1
     mute: 0
+    loop: 1
     source: {fileID: 0}
   - name: Pause Music
     clip: {fileID: 8300000, guid: 99c59d4c0b8a2534ebe3745b13f08e61, type: 3}
     volume: 0.5
     pitch: 1
+    mute: 0
     loop: 1
-    mute: 1
+    source: {fileID: 0}
+  - name: Death Music
+    clip: {fileID: 8300000, guid: e477c276eba84d342a50e8d0ebdd509b, type: 3}
+    volume: 0.5
+    pitch: 1
+    mute: 0
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &311280982
 Transform:
@@ -1279,7 +1286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 1713573761}
   pauseMenu: {fileID: 1679241248}
-  deathMenu: {fileID: 0}
+  deathMenu: {fileID: 1734636310}
 --- !u!1 &1035215253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,7 +1885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e47f580223924086dfa022a0674e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
 --- !u!114 &1596865980
 MonoBehaviour:
   m_ObjectHideFlags: 0
