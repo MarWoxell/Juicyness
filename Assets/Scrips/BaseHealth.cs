@@ -27,7 +27,7 @@ public class BaseHealth : MonoBehaviour
         {
 
             health -= 1;
-  
+            FindObjectOfType<AudioManager>().Play("Player Hurt");
 
 
         }

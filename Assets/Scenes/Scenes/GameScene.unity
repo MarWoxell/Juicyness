@@ -204,6 +204,27 @@ MonoBehaviour:
     mute: 0
     loop: 1
     source: {fileID: 0}
+  - name: Laser
+    clip: {fileID: 8300000, guid: 44e81699b370be2438e47507452fba81, type: 3}
+    volume: 0.5
+    pitch: 1
+    mute: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Player Hurt
+    clip: {fileID: 8300000, guid: 857d416421949b840b1d7eb386b1cccf, type: 3}
+    volume: 0.5
+    pitch: 1
+    mute: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Player Death
+    clip: {fileID: 8300000, guid: d729524039edf9741bb006af7d22fa41, type: 3}
+    volume: 0.5
+    pitch: 1
+    mute: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &311280982
 Transform:
   m_ObjectHideFlags: 0
@@ -543,6 +564,8 @@ MonoBehaviour:
   firePoint: {fileID: 138705109}
   firePoint1: {fileID: 1259399159}
   Player: {fileID: 793907297}
+  ShootingAmount: 0
+  Timer: 0
 --- !u!114 &742372621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,6 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e47f580223924086dfa022a0674e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!114 &1596865980
 MonoBehaviour:
   m_ObjectHideFlags: 0

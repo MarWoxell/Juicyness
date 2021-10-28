@@ -48,6 +48,7 @@ public class Menu : MonoBehaviour
 
         FindObjectOfType<AudioManager>().Mute("Gameplay Music");
         FindObjectOfType<AudioManager>().Play("Death Music");
+        FindObjectOfType<AudioManager>().Play("Player Death");
     }
 
     // Pause Menu knapp
