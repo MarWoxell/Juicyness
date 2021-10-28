@@ -32,7 +32,6 @@ public class CameraShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 localPos = transform.localPosition;
         time.x += Time.deltaTime * frenquency.x;
         time.y += Time.deltaTime * frenquency.y;
 
@@ -43,6 +42,22 @@ public class CameraShake : MonoBehaviour
 
 
         // Ändra så att den händer när spelaren blir träffad
+        /*if (Player hit)
+        {
+        PlayerShake()
+        }
+
+
+        if (Enemy hit)
+
+        {
+        EnemyShake()
+        }
+       */
+    }
+    void PlayerShake()
+    {
+        Vector3 localPos = transform.localPosition;
         if (shouldShake)
         {
             localPos = new Vector3(Mathf.Sin(time.x) * amplitude.x, Mathf.Sin(time.y) * amplitude.y, 0);
@@ -51,8 +66,10 @@ public class CameraShake : MonoBehaviour
         {
             localPos = Vector3.zero;
         }
-        transform.localPosition = localPos;
-
+    }
+    void EnemyShake()
+    {
+        Vector3 localPos = transform.localPosition;
         if (sS)
         {
             localPos = new Vector3(Mathf.Sin(ti.x) * amp.x, Mathf.Sin(ti.y) * amp.y, 0);
@@ -61,7 +78,5 @@ public class CameraShake : MonoBehaviour
         {
             transform.localPosition = localPos;
         }
-
-
     }
 }

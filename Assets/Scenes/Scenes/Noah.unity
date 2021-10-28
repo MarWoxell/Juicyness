@@ -514,6 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 387332355}
+  firePoint1: {fileID: 634654139}
   Player: {fileID: 821963819}
 --- !u!114 &1440819280
 MonoBehaviour:
