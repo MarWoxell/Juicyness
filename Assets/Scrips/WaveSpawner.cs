@@ -4,22 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
-    public enum SpawnState { SPAWNING, WAITING, COUTING }; //lista av bools
+    public enum SpawnState { SPAWNING, WAITING, COUTING }; //en lista av bools - Emma 
     [System.Serializable]
     public class Wave
     {
-        public string name; //namnet på waven
-        public Transform enemy; // enemy saken
-        public int count; //hur många 
-        public float rate; //hastigheten dom kommer spawnas 
+        public string name; //namnet på waven - Emma 
+        public Transform enemy; // enemy objektet - Emma 
+        public int count; //hur många enemies som ska spawnas - Emma 
+        public float rate; //hastigheten dom kommer spawnas - Emma 
     }
     public Wave[] wave;
     public int nextWave = 0;
 
     public float timeBetweenWaves = 5f;
-    public float waveCountdown; //så vi kan bestämma själva
+    public float waveCountdown; //så vi kan välja hur långtid mellan varje wave - Emma 
 
-    private float searchCoundown = 1f; //!! Dubbelkolla vad den gör!! Den ska leta 
+    private float searchCoundown = 1f; 
 
     private SpawnState state = SpawnState.WAITING;
 
@@ -33,8 +33,8 @@ public class WaveSpawner : MonoBehaviour
     {
 
  
-        if (nextWave < wave.Length)
-        {
+        if (nextWave < wave.Length) //
+        { 
            
             if (wave[nextWave].count <= 0)
             {
@@ -45,10 +45,10 @@ public class WaveSpawner : MonoBehaviour
 
         }
        
-        if (state == SpawnState.WAITING)
+        if (state == SpawnState.WAITING) //tittar vilket state waven är i - Emma
         {
             Debug.Log("Waiting");
-            if (EnemyIsAlive() == false)
+            if (EnemyIsAlive() == false) //ifall ingen enemy lever så är waven klar - Emma
             {
                 //Begin a new round
                 Debug.Log("Wave Complete");
@@ -56,31 +56,30 @@ public class WaveSpawner : MonoBehaviour
             }
           
 
-            if (waveCountdown <= 0)
+            if (waveCountdown <= 0) //när countdownen blir noll så kan den börjar spawna - Emma
             {
-                Debug.Log("Spawn");
-                if (state != SpawnState.SPAWNING)
+                if (state != SpawnState.SPAWNING) 
                 {
                    if(nextWave < wave.Length)
                     {
-                        StartCoroutine(SpawnWave(wave[nextWave])); //kanske waves??
+                        StartCoroutine(SpawnWave(wave[nextWave]));
                     }
                 
-                    //Start spawing 
+                   
                 }
                 else
                 {
-                    waveCountdown -= Time.deltaTime;
+                    waveCountdown -= Time.deltaTime; 
                 }
             }
         }
     }
-                bool EnemyIsAlive() //kollar om den lever
+                bool EnemyIsAlive() //kollar om någon enemy lever 
                 {
                     searchCoundown -= Time.deltaTime;
-                    if (searchCoundown <= 0f)
+                    if (searchCoundown <= 0f) 
                     {
-                        searchCoundown = 1f;
+                        searchCoundown = 1f; 
                         if (GameObject.FindGameObjectsWithTag("Enemy") == null)
                         {
                             return false;
@@ -90,12 +89,11 @@ public class WaveSpawner : MonoBehaviour
                     return true;
                 }
         
-            IEnumerator SpawnWave(Wave _wave)
+            IEnumerator SpawnWave(Wave _wave) //Att dom spawnas med en delay
             {
-               Debug.Log("Spawning Wave:" + _wave.name);
                 state = SpawnState.SPAWNING;
 
-                for (int i = 0; i < _wave.count; i++) // att detta ska hända ____
+                for (int i = 0; i < _wave.count; i++)
                 {
                     SpawnEnemy(_wave.enemy);
                     yield return new WaitForSeconds(1f / _wave.rate);
@@ -106,11 +104,10 @@ public class WaveSpawner : MonoBehaviour
                 yield break;
             }
 
-            void SpawnEnemy(Transform _enemy)
+            void SpawnEnemy(Transform _enemy) //
             {
         //spawn enemy
         int RandomSpawn = Random.Range(0, SpawnPos.Length);
-                Debug.Log("Spawning Enemy" + _enemy.name);
         Instantiate(_enemy, SpawnPos[RandomSpawn].position, transform.rotation);
         wave[nextWave].count--;
             }

@@ -4,34 +4,19 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    private Transform bullet;
-    public float speed;
-
-     void Start()
-    {
-        bullet = GetComponent<Transform>();
-    }
-     void FixedUpdate()
-    {
-        bullet.position += Vector3.up * -speed;
-       
-        if(bullet.position.y <= -10)
-        {
-            Destroy(bullet.gameObject);
-        }
-    }
+  
      void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Trigger")  //om den kommer utanför mappen till en trigger box så försvinner objeketet
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
-            Debug.Log("Player dead");
         }
-        else if (other.tag == "Base") {
+        if (other.tag == "Player")  //om den collidar med player så försvinner objektet och playern förlorar ett liv
+        {
             GameObject playerBase = other.gameObject;
-            BaseHealth basehealth = playerBase.GetComponent<BaseHealth>();
-            basehealth.health -= 1;
+            BaseHealth playerhealth = playerBase.GetComponent<BaseHealth>();
+            playerhealth.health -= 1;
             Destroy(gameObject);
         }
     }
