@@ -8,6 +8,7 @@ public class MenuMusic : MonoBehaviour
     void Start()
     {
         FindObjectOfType<AudioManager>().Play("Gameplay Music");
+        FindObjectOfType<AudioManager>().Play("Pause Music");
     }
 
     // Update is called once per frame
