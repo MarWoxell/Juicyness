@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject Player;
+    private Transform bullet;
+    public float speed;
 
-    private float bulletForce = 20f;
-    void Update()
+     void Start()
     {
-        if (Input.GetMouseButtonDown(0))
+        bullet = GetComponent<Transform>();
+    }
+     void FixedUpdate()
+    {
+        bullet.position += Vector3.up * -speed;
+       
+        if(bullet.position.y <= -10)
         {
-            Shoot();
+            Destroy(bullet.gameObject);
         }
     }
-
-    void Shoot()
+     void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject bullet = Instantiate(Player, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        if (other.tag == "Player")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            Debug.Log("Player dead");
+        }
+        else if (other.tag == "Base") {
+            GameObject playerBase = other.gameObject;
+            BaseHealth basehealth = playerBase.GetComponent<BaseHealth>();
+            basehealth.health -= 1;
+            Destroy(gameObject);
+        }
     }
 }
+
+
