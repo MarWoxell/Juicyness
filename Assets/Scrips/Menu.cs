@@ -26,6 +26,7 @@ public class Menu : MonoBehaviour
     // Start av scenen
     public void Start()
     {
+        GetComponent<AudioManager>();
         FindObjectOfType<AudioManager>().Play("Start Menu Music");
 
         pause = false;
@@ -60,6 +61,7 @@ public class Menu : MonoBehaviour
                 pause = true;
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0;
+                
             }
             else
             {
