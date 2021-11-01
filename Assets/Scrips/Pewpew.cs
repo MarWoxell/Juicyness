@@ -26,9 +26,8 @@ public class Pewpew : MonoBehaviour
             for(int i = 0; i <= ShootingAmount; i++)
             {
                 Shoot(i);
-                FindObjectOfType<AudioManager>().Play("Laser");
             }
-        
+            FindObjectOfType<AudioManager>().Play("Laser");
         }
         Timer -= Time.deltaTime;
         if(Timer <= 0)
