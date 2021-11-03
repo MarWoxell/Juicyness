@@ -42,13 +42,19 @@ public class Menu : MonoBehaviour
 
     public void Dead()
     {
-        deathMenu.SetActive(true);
-        death = true;
-        Time.timeScale = 0;
+        // Invoke gör att functionen har en delay och siffran är hur lång delayen är
+        Invoke("ReallyDead", 2);
 
         FindObjectOfType<AudioManager>().Mute("Gameplay Music");
         FindObjectOfType<AudioManager>().Play("Death Music");
         FindObjectOfType<AudioManager>().Play("Player Death");
+    }
+
+    public void ReallyDead()
+    {
+        deathMenu.SetActive(true);
+        death = true;
+        Time.timeScale = 0;
     }
 
     // Pause Menu knapp

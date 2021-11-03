@@ -9,8 +9,8 @@ public class ScoreManager : MonoBehaviour
     // Skrivet av Markus
 
     // Poäng värden
-    public int score = 0;
-    public int bestScore = 0;
+    public float score = 0;
+    public float bestScore = 0;
 
     // ska bort
     public Rigidbody rb;
@@ -30,7 +30,7 @@ public class ScoreManager : MonoBehaviour
     public void Start()
     {
         score = 0;
-        bestScore = PlayerPrefs.GetInt("Score", 0);
+        bestScore = PlayerPrefs.GetFloat("Score", 0);
         highScore.text = "Highscore " + bestScore;
     }
 
@@ -45,20 +45,16 @@ public class ScoreManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            bestScore = PlayerPrefs.GetInt("Score", 0);
+            bestScore = PlayerPrefs.GetFloat("Score", 0);
             print("Ladningfunkion");
             finalScore.text = "Score " + score;
             bestFinalScore.text = "HighScore " + bestScore;
         }
 
-        // Behöver ändras för att reagera när fiender dör
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.transform.position = rb.transform.position + new Vector3(0, 1, 0);
-            score += 1;
-            currentScore.text = "Score " + score;
-        }
+        
+        // Updaterar ens score hela tiden
+        currentScore.text = "Score " + score;
+        
     }
 
     // Ska hända när spelaren dör
@@ -68,7 +64,7 @@ public class ScoreManager : MonoBehaviour
             if (score > bestScore)
         {
             bestScore = score;
-            PlayerPrefs.SetInt("Score", bestScore);
+            PlayerPrefs.SetFloat("Score", bestScore);
             currentScore.text = "Score " + score;
             print("Nytt Highscore");
         }
@@ -82,6 +78,13 @@ public class ScoreManager : MonoBehaviour
     {
       
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+       if (other.tag == ("Enemy"))
+        score += 0.25f;
+    }
+
 
 
 }
