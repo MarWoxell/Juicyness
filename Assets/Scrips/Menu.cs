@@ -33,7 +33,7 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1;
 
         optionsMenu.SetActive(false);
-        //options = false;
+        
 
         deathMenu.SetActive(false);
         death = false;
@@ -117,7 +117,7 @@ public class Menu : MonoBehaviour
     }
 
 
-    // Options Menu knappar. Inte klart
+    // Options Menu knappar. Inte klart och idéen blev borttagen
 
     //---------------------------//
     public void settings()

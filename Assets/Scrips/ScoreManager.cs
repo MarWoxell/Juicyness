@@ -26,13 +26,15 @@ public class ScoreManager : MonoBehaviour
 
 
 
-
+    // Start av scenen
     public void Start()
     {
         score = 0;
         bestScore = PlayerPrefs.GetFloat("Score", 0);
         highScore.text = "Highscore " + bestScore;
     }
+
+    // För att testa saker
 
     public void Update()
     {
@@ -79,6 +81,7 @@ public class ScoreManager : MonoBehaviour
       
     }
 
+    // ger poäng när spelaren blir träffad
     private void OnTriggerEnter(Collider other)
     {
        if (other.tag == ("Enemy"))
