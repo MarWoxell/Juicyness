@@ -1813,7 +1813,7 @@ MonoBehaviour:
   sounds:
   - name: Start Menu Music
     clip: {fileID: 8300000, guid: 8bfebe4b1cb292e489cf8914c9fc91b0, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     mute: 0
     loop: 1

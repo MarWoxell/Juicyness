@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BaseHealth : MonoBehaviour
 {
+    public Animator animator;
     public int health = 3;
     public Text text;
   //  public GameObject heart;
@@ -16,7 +17,8 @@ public class BaseHealth : MonoBehaviour
         text.text = "Health " + health;
         if(health <= 0)
         {
-            Destroy(gameObject);
+            animator.SetBool("Death", true);
+            FindObjectOfType<Menu>().Dead();
         }
     }
 
@@ -24,7 +26,7 @@ public class BaseHealth : MonoBehaviour
     {
         if (other.transform.tag == "Enemy")  //om den collidar med player så förlorar playernett liv- Emma
         {
-
+            Destroy(other.gameObject, 1);
             health -= 1;
             FindObjectOfType<AudioManager>().Play("Player Hurt");
           //  Destroy(heart);

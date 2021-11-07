@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class LagPreventor : MonoBehaviour
 {
+    public GameObject Bullet;
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.tag == "bullet")
         {
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 

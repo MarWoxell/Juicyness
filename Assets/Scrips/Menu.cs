@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    //"FindObjectOfType<AudioManager>().Play("bla bla");" och allt med animation skrivet av Theo
+    public Animator animator;
 
     // skrivet av Markus
 
@@ -37,6 +39,7 @@ public class Menu : MonoBehaviour
 
         deathMenu.SetActive(false);
         death = false;
+
     }
 
 
@@ -46,7 +49,6 @@ public class Menu : MonoBehaviour
         Invoke("ReallyDead", 2);
 
         FindObjectOfType<AudioManager>().Mute("Gameplay Music");
-        FindObjectOfType<AudioManager>().Play("Death Music");
         FindObjectOfType<AudioManager>().Play("Player Death");
     }
 
@@ -55,6 +57,7 @@ public class Menu : MonoBehaviour
         deathMenu.SetActive(true);
         death = true;
         Time.timeScale = 0;
+        FindObjectOfType<AudioManager>().Play("Death Music");
     }
 
     // Pause Menu knapp
