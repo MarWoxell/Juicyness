@@ -74,7 +74,7 @@ public class WaveSpawner : MonoBehaviour
             }
         }
     }
-                bool EnemyIsAlive() //kollar om någon enemy lever 
+                bool EnemyIsAlive() //kollar om någon enemy lever - Emma
                 {
                     searchCoundown -= Time.deltaTime;
                     if (searchCoundown <= 0f) 
@@ -89,7 +89,7 @@ public class WaveSpawner : MonoBehaviour
                     return true;
                 }
         
-            IEnumerator SpawnWave(Wave _wave) //Att dom spawnas med en delay
+            IEnumerator SpawnWave(Wave _wave) //Att dom spawnas med en delay - Emma
             {
                 state = SpawnState.SPAWNING;
 

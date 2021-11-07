@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 868987656652769675}
   - component: {fileID: 868987656652769685}
   - component: {fileID: 868987656652769684}
+  - component: {fileID: 7750255539942277333}
   m_Layer: 0
   m_Name: "tillf\xE4llig fiende"
   m_TagString: Enemy
@@ -121,3 +122,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7750255539942277333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868987656652769672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879e47f580223924086dfa022a0674e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 4317037101402923682, guid: cc6663a095c80384b8722aae90c185a1, type: 3}

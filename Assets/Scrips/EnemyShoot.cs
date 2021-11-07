@@ -5,13 +5,14 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     public GameObject enemy;
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Trigger")  //om den kommer utanför mappen till en trigger box så försvinner objeketet
+
+        if (other.tag == "Enemy")
         {
+            Debug.Log("Gone");
             Destroy(other.gameObject);
         }
-      
     }
 }
 

@@ -8,7 +8,7 @@ public class pang : MonoBehaviour
      void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy") 
         {
             Debug.Log("Hit");
             Destroy(other.gameObject);

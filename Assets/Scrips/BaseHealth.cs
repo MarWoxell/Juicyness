@@ -6,15 +6,14 @@ using UnityEngine.UI;
 public class BaseHealth : MonoBehaviour
 {
     public int health = 3;
-    public int test;
     public Text text;
+  //  public GameObject heart;
 
    
     void Update()
         
     {
         text.text = "Health " + health;
-        test = health;
         if(health <= 0)
         {
             Destroy(gameObject);
@@ -23,11 +22,12 @@ public class BaseHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Enemy")  //om den collidar med player så försvinner objektet och playern förlorar ett liv
+        if (other.transform.tag == "Enemy")  //om den collidar med player så förlorar playernett liv- Emma
         {
 
             health -= 1;
             FindObjectOfType<AudioManager>().Play("Player Hurt");
+          //  Destroy(heart);
 
 
         }
