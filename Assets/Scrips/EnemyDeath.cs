@@ -27,6 +27,7 @@ public class EnemyDeath : MonoBehaviour
             Destroy(gameObject, 0.3f);
             FindObjectOfType<CameraShake>().EnemyShake();
             FindObjectOfType<ScoreManager>().score += 0.5f;
+            FindObjectOfType<AudioManager>().Play("Enemy Death");
         }
 
         if (other.tag == "Player")

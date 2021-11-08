@@ -185,41 +185,48 @@ MonoBehaviour:
   sounds:
   - name: Gameplay Music
     clip: {fileID: 8300000, guid: f6f09de796962934b9ac20125378e293, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     mute: 0
     loop: 1
     source: {fileID: 0}
   - name: Pause Music
     clip: {fileID: 8300000, guid: 99c59d4c0b8a2534ebe3745b13f08e61, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     mute: 0
     loop: 1
     source: {fileID: 0}
   - name: Death Music
     clip: {fileID: 8300000, guid: e477c276eba84d342a50e8d0ebdd509b, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     mute: 0
     loop: 1
     source: {fileID: 0}
   - name: Laser
     clip: {fileID: 8300000, guid: 44e81699b370be2438e47507452fba81, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     mute: 0
     loop: 0
     source: {fileID: 0}
   - name: Player Hurt
     clip: {fileID: 8300000, guid: 857d416421949b840b1d7eb386b1cccf, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     mute: 0
     loop: 0
     source: {fileID: 0}
   - name: Player Death
     clip: {fileID: 8300000, guid: d729524039edf9741bb006af7d22fa41, type: 3}
+    volume: 1
+    pitch: 1
+    mute: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy Death
+    clip: {fileID: 8300000, guid: f8f11b606dacc274aa425351cecfa37b, type: 3}
     volume: 1
     pitch: 1
     mute: 0
@@ -768,7 +775,7 @@ MonoBehaviour:
   firePoint1: {fileID: 1259399159}
   Player: {fileID: 793907297}
   ShootingAmount: 0
-  Timer: 30
+  Timer: 60
 --- !u!114 &742372621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2588,19 +2595,19 @@ MonoBehaviour:
   wave:
   - name: First test wave
     enemy: {fileID: 707034474}
-    count: 2
-    rate: 1
+    count: 6
+    rate: 0.5
   - name: Secound test wave
     enemy: {fileID: 707034474}
-    count: 3
-    rate: 1.5
+    count: 7
+    rate: 0.7
   - name: Third test wave
     enemy: {fileID: 2130800908}
-    count: 4
-    rate: 2
+    count: 8
+    rate: 0.8
   - name: Third test wave
     enemy: {fileID: 2130800908}
-    count: 5
+    count: 10
     rate: 1
   nextWave: 0
   timeBetweenWaves: 0
@@ -3549,7 +3556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.399994, y: -34.7}
+  m_AnchoredPosition: {x: -3.4000244, y: -34.699997}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1875859778
