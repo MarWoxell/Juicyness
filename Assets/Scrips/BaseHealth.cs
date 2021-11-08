@@ -15,10 +15,12 @@ public class BaseHealth : MonoBehaviour
         
     {
         text.text = "Health " + health;
-        if(health <= 0)
+        if(health == 0)
         {
             animator.SetBool("Death", true);
             FindObjectOfType<Menu>().Dead();
+            FindObjectOfType<ScoreManager>().LoadScore();
+            health -= 1;
         }
     }
 
@@ -29,6 +31,7 @@ public class BaseHealth : MonoBehaviour
             Destroy(other.gameObject, 1);
             health -= 1;
             FindObjectOfType<AudioManager>().Play("Player Hurt");
+            FindObjectOfType<CameraShake>().PlayerShake();
           //  Destroy(heart);
 
 

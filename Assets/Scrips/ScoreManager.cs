@@ -78,14 +78,10 @@ public class ScoreManager : MonoBehaviour
     //Ska hända i death screenen 
     public void LoadScore()
     {
-      
-    }
-
-    // ger poäng när spelaren blir träffad
-    private void OnTriggerEnter(Collider other)
-    {
-       if (other.tag == ("Enemy"))
-        score += 0.25f;
+        bestScore = PlayerPrefs.GetFloat("Score", 0);
+        print("Ladningfunkion");
+        finalScore.text = "Score " + score;
+        bestFinalScore.text = "HighScore " + bestScore;
     }
 
 

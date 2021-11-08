@@ -27,7 +27,7 @@ public class CameraShake : MonoBehaviour
 
     public bool sS;
 
-
+    public GameObject Camera;
 
     // Update is called once per frame
     void Update()
@@ -36,47 +36,36 @@ public class CameraShake : MonoBehaviour
         time.y += Time.deltaTime * frenquency.y;
 
         
-        time.x += Time.deltaTime * fre.x;
-        time.y += Time.deltaTime * fre.y;
+        ti.x += Time.deltaTime * fre.x;
+        ti.y += Time.deltaTime * fre.y;
 
-
-
-        // Ändra så att den händer när spelaren blir träffad
-        /*if (Player hit)
-        {
-        PlayerShake()
-        }
-
-
-        if (Enemy hit)
-
-        {
-        EnemyShake()
-        }
-       */
+        
+       
     }
-    void PlayerShake()
+    public void PlayerShake()
     {
-        Vector3 localPos = transform.localPosition;
         if (shouldShake)
         {
-            localPos = new Vector3(Mathf.Sin(time.x) * amplitude.x, Mathf.Sin(time.y) * amplitude.y, 0);
+            Camera.transform.localPosition = new Vector3(Mathf.Sin(time.x) * amplitude.x, Mathf.Sin(time.y) * amplitude.y, 0);
+            Debug.Log("Yeet");
+
+            Invoke("ResetCamera", 0.1f);
         }
-        else
-        {
-            localPos = Vector3.zero;
-        }
+
     }
-    void EnemyShake()
+    public void EnemyShake()
     {
-        Vector3 localPos = transform.localPosition;
         if (sS)
         {
-            localPos = new Vector3(Mathf.Sin(ti.x) * amp.x, Mathf.Sin(ti.y) * amp.y, 0);
+            Camera.transform.localPosition = new Vector3(Mathf.Sin(ti.x) * amp.x, Mathf.Sin(ti.y) * amp.y, 0);
+            Debug.Log("Bonk");
+
+            Invoke("ResetCamera", 0.1f);
         }
-        else
-        {
-            transform.localPosition = localPos;
-        }
+    }
+
+    public void ResetCamera()
+    {
+        Camera.transform.localPosition = Vector3.zero;
     }
 }

@@ -112,6 +112,7 @@ public class Menu : MonoBehaviour
     public void start()
     {
         SceneManager.LoadScene("GameScene");
+        Time.timeScale = 1;
     }
 
     public void goBack()

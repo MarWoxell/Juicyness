@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
-    //Noahs programmering
+    //Theos programmering
 
     public GameObject Player;
     public GameObject Bullet;
@@ -25,6 +25,8 @@ public class EnemyDeath : MonoBehaviour
             Debug.Log("Gone");
             Destroy(other.gameObject);
             Destroy(gameObject, 0.3f);
+            FindObjectOfType<CameraShake>().EnemyShake();
+            FindObjectOfType<ScoreManager>().score += 0.5f;
         }
 
         if (other.tag == "Player")
