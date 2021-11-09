@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LagPreventor : MonoBehaviour
+public class BorderHealth : MonoBehaviour
 {
-    //Jag inser nu att denna script är relativt oanvändbar, men den får vara kvar - Theo
+    //Theos programmering
 
-    public GameObject Bullet;
+    public GameObject Enemy1;
+    public GameObject Enemy2;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "bullet")
+        if (other.tag == "Enemy")
         {
             Destroy(other.gameObject);
+            FindObjectOfType<BaseHealth>().HealthDown();
         }
     }
 

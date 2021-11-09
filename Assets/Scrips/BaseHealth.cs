@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BaseHealth : MonoBehaviour
 {
+    //Inte min script, men jag har gjort allt med Animation och Ljud.
+
     public Animator animator;
     public int health = 3;
     public Text text;
@@ -24,17 +26,22 @@ public class BaseHealth : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Enemy")  //om den collidar med player så förlorar playernett liv- Emma
         {
             Destroy(other.gameObject, 1);
-            health -= 1;
-            FindObjectOfType<AudioManager>().Play("Player Hurt");
-            FindObjectOfType<CameraShake>().PlayerShake();
+            HealthDown();
           //  Destroy(heart);
 
 
         }
+    }
+
+    public void HealthDown()
+    {
+        health -= 1;
+        FindObjectOfType<AudioManager>().Play("Player Hurt");
+        FindObjectOfType<CameraShake>().PlayerShake();
     }
 }

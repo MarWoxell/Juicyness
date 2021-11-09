@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MenuMusic : MonoBehaviour
 {
+    //Theos programmering
+
     // Start is called before the first frame update
     void Start()
     {
