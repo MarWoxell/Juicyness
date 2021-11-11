@@ -28,11 +28,12 @@ public class Menu : MonoBehaviour
     // Start av scenen
     public void Start()
     {
+        Time.timeScale = 1;
         FindObjectOfType<AudioManager>().Play("Start Menu Music");
 
         pause = false;
         pauseMenu.SetActive(false);
-        Time.timeScale = 1;
+        
 
         optionsMenu.SetActive(false);
         
