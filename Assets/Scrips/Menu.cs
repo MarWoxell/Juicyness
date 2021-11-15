@@ -29,6 +29,7 @@ public class Menu : MonoBehaviour
     public void Start()
     {
         Time.timeScale = 1;
+        //Hittar "AudioManager" scripten och använder "Play" metoden för att spela ljudet/låten med namnet "Start Menu Music".
         FindObjectOfType<AudioManager>().Play("Start Menu Music");
 
         pause = false;
@@ -49,6 +50,7 @@ public class Menu : MonoBehaviour
         // Invoke gör att functionen har en delay och siffran är hur lång delayen är
         Invoke("ReallyDead", 2);
 
+        //Mute:ar gameplay-låten och spelar death-ljudeffekten när spelaren dör.
         FindObjectOfType<AudioManager>().Mute("Gameplay Music");
         FindObjectOfType<AudioManager>().Play("Player Death");
     }
@@ -58,6 +60,7 @@ public class Menu : MonoBehaviour
         deathMenu.SetActive(true);
         death = true;
         Time.timeScale = 0;
+        //Här spelas deathscreen-musiken.
         FindObjectOfType<AudioManager>().Play("Death Music");
     }
 
@@ -72,6 +75,7 @@ public class Menu : MonoBehaviour
                 pause = true;
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0;
+                //Här mute:as gameplay-musiken och pausemeny-musiken spelas istället. Detta sker när man trycker "escape" knappen, alltså pausar spelet.
                 FindObjectOfType<AudioManager>().Mute("Gameplay Music");
                 FindObjectOfType<AudioManager>().UnMute("Pause Music");
             }
@@ -80,6 +84,7 @@ public class Menu : MonoBehaviour
                 pause = false;
                 pauseMenu.SetActive(false);
                 Time.timeScale = 1;
+                //Här mute:as pausmusiken och gameplay-musiken unmute:as. 
                 FindObjectOfType<AudioManager>().UnMute("Gameplay Music");
                 FindObjectOfType<AudioManager>().Mute("Pause Music");
             }
@@ -102,6 +107,7 @@ public class Menu : MonoBehaviour
         pause = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        //Här mute:as pausmusiken och gameplay-musiken unmute:as.
         FindObjectOfType<AudioManager>().UnMute("Gameplay Music");
         FindObjectOfType<AudioManager>().Mute("Pause Music");
     }

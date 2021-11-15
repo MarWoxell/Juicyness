@@ -1,3 +1,4 @@
+//Här, precis som i Sound-scripten, använder jag också "UnityEngine.Audio".
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
@@ -29,19 +30,23 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-
+    //En "Play" Method. När man call:ar på denna metoden så spelar den ljudet/musiken av namnet som du givit. 
     public void Play (string name)
     {
+        //It browses through the array with "Array.Find" to find the sound with a specific name. 
+        //Den bläddrar igenom array:en med "Array.Find" för att hitta ett ljud ("sound") med ett specifikt namn ("name"). 
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
     }
 
+    //Samma som "Play" metoden förutom att man tystar det specifika ljudet istället för att spela det.
     public void Mute (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.mute = true;
     }
 
+    //Samma som "Mute" metoden förutom att man tar bort tystnad från ett ljud istället för att tysta det.
     public void UnMute (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);

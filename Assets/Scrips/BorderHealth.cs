@@ -5,6 +5,8 @@ using UnityEngine;
 public class BorderHealth : MonoBehaviour
 {
     //Theos programmering
+    //Denna script ser till att alla enemies som nuddar den lägre bordern dör...
+    //...den ser också till att spelarens liv går ner när en enemy nuddar lägre bordern.
 
     public GameObject Enemy1;
     public GameObject Enemy2;
@@ -18,15 +20,4 @@ public class BorderHealth : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
